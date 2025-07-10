@@ -1,11 +1,11 @@
 package stack
 
 type Stack struct {
-	data string
+	data []rune
 }
 
 func (s *Stack) Push(char rune) {
-	s.data = s.data + string(char)
+	s.data = append(s.data, char)
 }
 
 func (s *Stack) Pop() (rune, bool) {
@@ -16,7 +16,7 @@ func (s *Stack) Pop() (rune, bool) {
 	top := s.data[len(s.data)-1]
 	s.data = s.data[:len(s.data)-1]
 
-	return rune(top), true
+	return top, true
 }
 
 func (s *Stack) Peak() (rune, bool) {
@@ -24,8 +24,7 @@ func (s *Stack) Peak() (rune, bool) {
 		return rune(0), false
 	}
 
-	top := rune(s.data[len(s.data)-1])
-	return top, true
+	return s.data[len(s.data)-1], true
 }
 
 func (s *Stack) IsEmpty() bool {

@@ -4,7 +4,7 @@ import (
 	"slices"
 )
 
-func IsValid(s string) bool {
+func IsValid(s []rune) bool {
 	openParenthesis := []rune{'(', '{', '['}
 	closeParenthesis := []rune{')', '}', ']'}
 	pairs := map[rune]rune{
@@ -17,7 +17,7 @@ func IsValid(s string) bool {
 
 	for _, char := range s {
 		if ok := slices.Contains(openParenthesis, rune(char)); ok {
-			stack.Push(rune(char))
+			stack.Push(char)
 		}
 
 		if ok := slices.Contains(closeParenthesis, rune(char)); ok {
