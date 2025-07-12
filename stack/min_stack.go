@@ -29,7 +29,7 @@ func (s *MinStack) Pop() (int, bool) {
 	return top, true
 }
 
-func (s *MinStack) Peak() (int, bool) {
+func (s *MinStack) Peek() (int, bool) {
 	if len(s.data) == 0 {
 		return 0, false
 	}

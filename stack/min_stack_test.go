@@ -14,10 +14,10 @@ func TestMinStack(t *testing.T) {
 		t.Error("GetMin should fail on empty stack")
 	}
 
-	s.Push(3)
-	s.Push(5)
-	s.Push(2)
-	s.Push(1)
+	s.Push(3) // 3
+	s.Push(5) // 3, 3
+	s.Push(2) // 3, 3, 2
+	s.Push(1) // 3, 3, 2, 1
 
 	if min, _ := s.GetMin(); min != 1 {
 		t.Errorf("expected min to be 1, got %d", min)
@@ -36,7 +36,7 @@ func TestMinStack(t *testing.T) {
 	}
 
 	// Test Top
-	if top, _ := s.Peak(); top != 5 {
+	if top, _ := s.Peek(); top != 5 {
 		t.Errorf("expected top to be 5, got %d", top)
 	}
 
@@ -50,7 +50,7 @@ func TestMinStack(t *testing.T) {
 	if _, ok := s.GetMin(); ok {
 		t.Error("GetMin should fail after emptying stack")
 	}
-	if _, ok := s.Peak(); ok {
+	if _, ok := s.Peek(); ok {
 		t.Error("Peak should fail on empty stack")
 	}
 }
