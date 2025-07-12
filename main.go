@@ -9,14 +9,9 @@ func main() {
 		ll.InsertAtEnd(i)
 	}
 
-	ll.InsertAtHead(0)
-	ll.InsertAtHead(-1)
+	ll.Print()
 
-	ll.InsertAt(5, 99)
-	ll.InsertAt(0, 88)
-
-	ll.DeleteAt(0)
-	ll.DeleteAt(1)
+	linkedlist.ReverseLinkedList(&ll)
 
 	ll.Print()
 }
