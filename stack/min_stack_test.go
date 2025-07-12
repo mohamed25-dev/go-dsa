@@ -31,7 +31,7 @@ func TestMinStack(t *testing.T) {
 
 	// Pop 2 → expect min to become 3
 	s.Pop()
-	if min, _ := s.GetMin(); min != 2 {
+	if min, _ := s.GetMin(); min != 3 {
 		t.Errorf("expected min to be 3 after popping 2, got %d", min)
 	}
 
