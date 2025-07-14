@@ -51,7 +51,7 @@ func (ll *LinkedList) InsertAtHead(val int) {
 }
 
 func (ll *LinkedList) InsertAt(index, val int) bool {
-	if index > ll.Length {
+	if index < 0 || index > ll.Length {
 		return false
 	}
 
@@ -85,29 +85,27 @@ func (ll *LinkedList) InsertAt(index, val int) bool {
 }
 
 func (ll *LinkedList) DeleteAt(index int) bool {
-	if index >= ll.Length {
+	if index < 0 || index >= ll.Length {
 		return false
 	}
 
-	if ll.Length == 0 {
-		return true
-	}
-
-	ll.Length--
-
 	if index == 0 {
 		ll.Head = ll.Head.Next
+		ll.Length--
 		return true
 	}
 
 	current := ll.Head
-	previous := ll.Head
-	for i := 0; i < index; i++ {
-		previous = current
+	for i := 0; i < index-1; i++ {
 		current = current.Next
 	}
 
-	previous.Next = current.Next
+	toDelete := current.Next
+	current.Next = toDelete.Next
+
+	if index == ll.Length-1 {
+		ll.Tail = current.Next
+	}
 
 	return true
 
