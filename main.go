@@ -12,4 +12,6 @@ func main() {
 	for _, v := range nums {
 		t.Insert(v)
 	}
+
+	t.Print()
 }
