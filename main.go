@@ -1,23 +1,15 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/mohamed25-dev/go-dsa/queue"
+	binarytree "github.com/mohamed25-dev/go-dsa/binary-tree"
 )
 
 func main() {
 
-	var q queue.Queue
+	var t binarytree.BinaryTree
+	nums := []int{9, 7, 5, 11, 10, 12, 8}
 
-	for i := 1; i <= 3; i++ {
-		q.Enqueue(i)
-	}
-
-	for i := 1; i <= 5; i++ {
-		front, ok := q.Peek()
-		q.Dequeue()
-		size := q.Size()
-		fmt.Println(ok, front, size)
+	for _, v := range nums {
+		t.Insert(v)
 	}
 }
